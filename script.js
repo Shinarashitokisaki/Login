@@ -8,7 +8,7 @@ document.getElementById('absenForm').addEventListener('submit', function(event) 
     const chatId = '7120969628';
     
     // Kirim data ke bot Telegram
-    const message = `username=${nama} telah datang rapat jam ${new Date().toLocaleTimeString()}`;
+    const message = `${nama} telah datang rapat jam ${new Date().toLocaleTimeString()}`;
     const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${message}`;
     
     // Kirim pesan ke bot Telegram
