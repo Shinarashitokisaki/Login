@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="Styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Absen Rapat</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="login-container">
-        <h2>Login to Absen</h2>
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
-    </div>
-
-    <script src="script.js"></script>
+<div class="container">
+    <h1>Hadir Rapat Tim SMS</h1>
+    <form id="absenForm">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" required>
+        <label for="password">Password Rapat:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Absen</button>
+    </form>
+</div>
+<script src="script.js"></script>
 </body>
-</html>
+    </html>
